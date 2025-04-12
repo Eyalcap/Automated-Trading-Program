@@ -27,7 +27,7 @@ class Handler(BaseHTTPRequestHandler):
                  'code': code, 
                  'client_id': CLIENT_ID, 
                  'redirect_uri': 'http://127.0.0.1'}
-        authReply = requests.post('https://api.tdameritrade.com/v1/oauth2/token', headers=headers, data=data)
+        authReply = requests.post('https://api.tdameritrade.com/v1/oauth2/token', headers=headers, data=data, timeout=60)
         
         #returned just to test that it's working
         self.wfile.write(authReply.text.encode())
